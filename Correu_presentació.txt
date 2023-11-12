@@ -1,0 +1,25 @@
+Estimat Joan Protasio, 
+
+Ens plau enormement posar-nos en contacte amb vostè com a resposta a la seva sol·licitud de col·laboració per al desenvolupament del projecte que ens ha presentat. Ens presentem com a equip dedicat de professionals amb una àmplia experiència en el desenvolupament de projectes informàtics.
+
+Presentació de l'Equip: 
+Martí Ortega (Analista de Sistemes i Executiu): Encarregat de l'anàlisi detallat dels requisits del sistema, assegurant-se que les necessitats dels usuaris es reflecteixin adequadament en la solució final. 
+Aina Setó (Arquitecta): Responsable de dissenyar l'arquitectura del sistema, assegurant-se que sigui escalable, eficient i amb una estructura lògica coherent. 
+Mario Amador (Dissenyador i Cap de Projecte): Encapçalarà el disseny del sistema, assegurant-se que l'aspecte visual compleixi amb les expectatives del client. A més, actuarà com a líder del projecte, coordinant tot l'equip. 
+Albert Garcia (Desenvolupador i Tester): Encarregat de la implementació del sistema i de realitzar les proves necessàries per garantir la seva fiabilitat i rendiment.
+
+La filosofia de l’empresa es regeix per valors com la transparència, la familiariat, la col·laboració i la satisfacció del client. Creiem en l'ús de les millors pràctiques de desenvolupament per oferir solucions robustes i orientades a les necessitats reals dels nostres clients. 
+
+Compromís de Projecte: 
+Amb la seva data límit del 6 de novembre en compte, volem assegurar-li que estem plenament compromesos amb el seu projecte. El nostre compromís inclou: 
+Fase d'Anàlisi (Marti): Realitzarem una anàlisi exhaustiva dels requisits del sistema abans del 24 de novembre. Durant aquest temps, estarem en contacte amb vostè per aclarir qualsevol punt o detall necessari.
+Fase d'Arquitectura (Aina): La fase d'arquitectura serà completada abans del 6 de novembre, garantint una estructura sòlida i eficient per al seu sistema. 
+Fase de Disseny i Direcció de Projecte (Mario): La part de disseny estarà finalitzada abans del 6 de desembre. A més, mantindrem una comunicació constant amb vostè sobre els progressos del projecte. 
+Fase de Desenvolupament i Test (Albert): Iniciarem la fase de desenvolupament immediatament després del disseny, amb una finalització prevista abans del 15 de desembre. Les proves seran realitzades de manera exhaustiva per assegurar la qualitat del producte.
+
+En resum, estem dedicats a l'èxit del seu projecte i estarem treballant amb tota la nostra habilitat i dedicació per complir amb les seves expectatives. Agraïm la seva confiança i estem ansiosos per començar a treballar junts en aquest emocionant projecte.
+
+"L'empresa de programari que t'ajuda a diari"
+
+Mario Amador Hurtado
+RYA S.L
