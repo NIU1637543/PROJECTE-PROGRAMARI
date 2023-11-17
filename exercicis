@@ -1,0 +1,27 @@
+PREGUNTA 1
+  Requisit:  El client haurà de triar quines peces de roba es queda o no a la pàquina web.
+  Descripció:  Després de provar-teles peces i decidir quins vols i quins no, entra a la web amb el teu usuari, indica amb quina peces et quedes i les que tornes.
+  Tipus:  Interfície Externa
+  Stakeholders:  Julieta Serrano 
+  
+  Requisit:  Els pagaments es faran amb tarjeta de crèdit, de dèbit i AmericanExpress
+  Descripció:  Pel que fa als pagaments, inicialment acceptarem pagaments amb targeta de crèdit, de dèbit i AmericanExpress que han de complir amb tots els estàndards de ciber-seguretat.
+  Tipus:  Interfície Externa
+  Stakeholders:  Alba Torres
+  
+  Requisit:  La metogologia de desenvolupament serà àgil
+  Descripció:  L'única restricció que us imposo inicialment en aquest sentit és que utilitzeu una metodologia de desenvolupament àgil que ens permeti tenir des del principi un producte funcional i adaptar els requeriments i funcionalitats a la demanda que anem tenint.
+  Tipus:  Limitacions software??
+  Stakeholders:  Julieta Lara  
+  
+  Requisit:  El sistema ha de complir amb el Reglament General de Protecció de Dades (RGPD)
+  Descripció:  Una característica fonamental que hem de tenir en compte quan vam implementar aquesta part és l'aplicació del Reglament General de la Protecció de Dades, en el qual es controla i monitoritza l'emmagatzematge, processament i divulgació dels registres personals dels individus. Aquest reglament, que és d'obligat compliment, estableix que totes les dades personals han de ser confidencials i no es poden distribuir a entitats externes sense un consentiment explícit del individu afectat.
+  Tipus:  Seguretat
+  Stakeholders:  Alba Torres
+
+
+PREGUNTA 2
+  Com a personal shopper vull rebre feedback dels motius pels quals no els han agradat les recomanacions d'una comanda, per tal de conèixer millor els clients.
+  Com a personal shopper vull disposar del catàleg complet amb totes les peces de les marques que treballem i la seva disponibilitat, per tal de fer la feina més àgil.
+  Com a client vull poder canviar de personal shopper  en cas que el tingui assignat no m'acabi de convèncer, per tal de que les peces de roba siguin del meu estil.
+  Com a client vull poder comunicar-me amb el meu personal shopper, per tal de que aquest capti el meu estil per fer-me recomanacions encertades.
