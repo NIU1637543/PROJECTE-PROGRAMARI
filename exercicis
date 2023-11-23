@@ -27,7 +27,7 @@ PREGUNTA 2
   Com a client vull poder comunicar-me amb el meu personal shopper, per tal de que aquest capti el meu estil per fer-me recomanacions encertades.
 
 
-Pregunta 3a
+PREGUNTA 3a
 
 CAS 1:
 - Requisit 1: Alba Torres, responsable del departament financer, destaca la importància que el
@@ -40,7 +40,43 @@ empreses de les marques s'han de comprometre a enviar les peces demanades en un 
 - Requisit 2: el Luis Lara també destaca la importància de l'exclusivitat i de negociar acords comercials amb marques de roba de primera qualitat.
 - Conflicte: la necessitat de mantenir un inventari mínim i garantir el lliurament en 24 hores podria entrar en conflicte amb l'exclusivitat de treballar només amb marques d'alta qualitat, algunes de les quals podrien no ser capaces de complir els terminis de lliurament tan ajustats.
 
-Pregunta 3b
+PREGUNTA 3b
+
 - Requisit de Completar el Perfil per al Personal Shopper: Els clients han de completar el seu perfil amb informació detallada sobre la seva talla, gustos i preferències, que durarà aproximadament 5 minuts.
 - Requisit d'Assignació de Personal Shopper basat en el Perfil Complet: quan el client crei el seu perfil, se li assigna un Personal Shopper que estudiarà detingudament la informació proporcionada per oferir combinacions que s'adaptin millor als seus gustos i preferències.
 - Relació: Hi ha una relació d‟implicació entre aquests dos requisits. El segon requisit depèn del compliment del primer. Només si el client completa el perfil, s'activa el procés d'assignació del Personal Shopper. Si el client no proporciona la informació necessària, el servei de Personal Shopper no pot funcionar de manera efectiva.
+
+PREGUNTA 4
+
+  1. Crear Perfil del Client
+    Actor Iniciador: Client
+  
+  2. Fer Comanda
+    Actor Iniciador: Client
+  
+  3. Donar Feedback sobre Comanda
+    Actor Iniciador: Client
+  
+  4. Modificar Perfil del Client
+    Actor Iniciador: Client
+  
+  5. Visualitzar Històric de Comandes
+    Actor Iniciador: Client
+  
+  6. Sol·licitar Canvi de Personal Shopper
+    Actor Iniciador: Client
+  
+  7. Comunicar Problemes amb la Comanda
+    Actor Iniciador: Client
+  
+  8. Gestionar Subscripcions Mensuals
+    Actor Iniciador: Client
+  
+  9. Explorar Catàleg de Peces Disponibles
+    Actor Iniciador: Client
+  
+  10. Consultar Ofertes i Descomptes
+    Actor Iniciador: Client
+  
+  11. Cancelar Subscripció Mensual
+    Actor Iniciador: Client
