@@ -1,0 +1,19 @@
+﻿PREGUNTA 5
+
+
+Fer comanda:
+
+
+
+
+Donar Feedback sobre Comanda:
+
+
+Diagrama cas d’ús:
+  
+
+
+Crear Perfil del Client:
+
+
+Diagrama cas d’ús:
