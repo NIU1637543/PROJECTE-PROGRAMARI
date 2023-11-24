@@ -68,17 +68,17 @@ PREGUNTA 4
   
   7. Comunicar Problemes amb la Comanda
     Actor Iniciador: Client
+
+  8. Gestionar Estoc de Peces
+    Actor Iniciador: Personal Shopper
   
-  8. Gestionar Subscripcions Mensuals
+  9. Gestionar Subscripcions Mensuals
     Actor Iniciador: Client
   
-  9. Explorar Catàleg de Peces Disponibles
+  10. Explorar Catàleg de Peces Disponibles
     Actor Iniciador: Client
   
-  10. Consultar Ofertes i Descomptes
-    Actor Iniciador: Client
-  
-  11. Cancelar Subscripció Mensual
+  11. Consultar Ofertes i Descomptes
     Actor Iniciador: Client
 
 
