@@ -83,7 +83,13 @@ class Comanda:
         
     def valorar(self):
         for nom, prod  in self.productes.items():
-            puntuacio = int(input(f"Introdueix la puntuació per {nom} (de 1 a 5): "))
+            be=False
+            while not be:
+                puntuacio = int(input(f"Introdueix la puntuació per {nom} (de 1 a 5): "))
+                if 1<=puntuacio<=5:
+                    be=True
+                else:
+                    print("Puntuació no vàlida, introdueix un valor del 1 al 5")
             ressenya = input("Introdueix un comentari (opcional): ")
             data=datetime.datetime.now()
             valoracio = Valoracio(puntuacio, ressenya, data)
