@@ -211,29 +211,3 @@ class Model:
     def descripcio(self) -> str:
         return self.descripcio
 
-
-
-
-
-
-if __name__ == "__main__":
-    producte_1 = Producte(1, "Producte 1", 10.0, "Descripció del producte 1")
-    producte_2 = Producte(2, "Producte 2", 15.0, "Descripció del producte 2")
-
-    item_1 = Item(1, producte_1, 2)
-    item_2 = Item(2, producte_2, 1)
-
-    client = Client(1, "Nom Client", "client@example.com", "Adreça Client", "password")
-    comanda = client.realitzar_comanda([item_1, item_2])
-
-    print(client.seguir_comanda(comanda))
-    comanda.valorar_producte()
-
-    for item in comanda.productes:
-        print(f"Detalls del producte: {item.producte.obtenir_detalls()}")
-        if item.resenya:
-            print(f"Puntuació mitjana del producte: {item.producte.obtenir_puntuacio_mitjana()}")
-            print(f"Resenya del producte: Puntuació: {item.resenya.puntuacio}, Comentari: {item.resenya.comentari}")
-        else:
-            print("Encara no s'ha valorat aquest producte.")
-        print("-----")
