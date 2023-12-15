@@ -112,15 +112,15 @@ class Valoracio:
 class Producte:
     def __init__(self, nom: str, marca: Marca, model: Model, seccio: str, subseccio: str,
                  preu: int, disponibilitat: str, descripcio: str, recomanats: Dict[str, "Producte"]):
-        self.nom = nom
-        self.marca = marca
-        self.model = model
-        self.seccio = seccio
-        self.subseccio = subseccio
-        self.preu = preu
-        self.disponibilitat = disponibilitat
-        self.descripcio = descripcio
-        self.recomanats = recomanats
+        self._nom = nom
+        self._marca = marca
+        self._model = model
+        self._seccio = seccio
+        self._subseccio = subseccio
+        self._preu = preu
+        self._disponibilitat = disponibilitat
+        self._descripcio = descripcio
+        self._recomanats = recomanats
         self._valoracions = []
 
     def __str__(self):
@@ -135,31 +135,31 @@ class Producte:
                f"Recomendacions: {self.recomanats}\n"
 
     def nom(self) -> str:
-        return self.nom
+        return self._nom
 
     def marca(self) -> str:
-        return self.marca.marca()
+        return self._marca
 
     def model(self) -> str:
-        return self.model.model()
+        return self._model
 
     def seccio(self) -> str:
-        return self.seccio
+        return self._seccio
 
     def subseccio(self) -> str:
-        return self.subseccio
+        return self._subseccio
 
     def preu(self) -> int:
-        return self.preu
+        return self._preu
 
     def disponibilitat(self) -> str:
-        return self.disponibilitat
+        return self._disponibilitat
 
     def descripcio(self) -> str:
-        return self.descripcio
+        return self._descripcio
 
     def recomanacions(self) -> Dict[str, 'Producte']:
-        return self.recomanats
+        return self._recomanats
                      
     def mitjana_nota(self):
         sum=0
