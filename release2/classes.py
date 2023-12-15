@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 11 11:08:59 2023
-
-@author: marioamadorhurtado
-"""
 
 from typing import Dict
 
@@ -167,7 +162,6 @@ class Model:
 
     def descripcio(self) -> str:
         return self.descripcio
-
 
 
 
