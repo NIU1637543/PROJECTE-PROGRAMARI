@@ -11,9 +11,7 @@ class Cataleg():
         self._seccions=seccions
     
     def productes_seccio(self, s):
-        for seccio in self._seccions:
-            if s==seccio.nom():
-                prod = seccio.productes_seccio()
+        prod = self.seccions[s].productes_subseccio()
         return prod
         
     def productes_marca(self, m):
@@ -73,7 +71,7 @@ class Subseccio():
         return self._descripcio
         
     def productes_subseccio(self):
-        return len(self._productes)
+        return len(self._productes.keys())
 
     def productes_marca(self, m):
         count = 0
