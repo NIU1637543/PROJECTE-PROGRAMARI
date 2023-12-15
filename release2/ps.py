@@ -1,92 +1,136 @@
 from typing import List
 from datetime import date
 
+#CLASSE PRODUCTE
 class Producte:
-    def __init__(self, id: int, nom: str, preu: float, descripcio: str):
-        self.id = id
+    def __init__(self, nom: str, preu: float, descripcio: str):
         self.nom = nom
         self.preu = preu
         self.descripcio = descripcio
-        self.resenyes = []
+        self._valoracions = []
 
-    def obtenir_detalls(self):
-        return f"{self.nom}: {self.descripcio}, Preu: {self.preu}€"
+    def mitjana_nota(self):
+        sum=0
+        for val in self._valoracions:
+            sum+=val.nota
+        return sum/len(self._valoracions)
 
-    def obtenir_puntuacio_mitjana(self):
-        if not self.resenyes:
-            return 0
-        return sum(resenya.puntuacio for resenya in self.resenyes) / len(self.resenyes)
+    def ressenyes(self):
+        ressenyes=[]
+        for val in self._valoracions:
+            ressenyes.append(val.ressenya)
+        return ressenyes
 
-
-class Item:
-    def __init__(self, id: int, producte: Producte, quantitat: int):
-        self.id = id
-        self.producte = producte
-        self.quantitat = quantitat
-        self.resenya = None
-
-    def calcular_subtotal(self):
-        return self.quantitat * self.producte.preu
+    def afegir_valoracio(self, val):
+        self._valoracion.append(val)
 
 
-class Resenya:
-    def __init__(self, puntuacio: int, comentari: str):
-        self.puntuacio = puntuacio
-        self.comentari = comentari
 
-
+#CLASSE COMANDA
 class Comanda:
-    def __init__(self, id: int, data: date, estat: str):
-        self.id = id
-        self.data = data
-        self.estat = estat
-        self.productes = []
+    def __init__(self, id: int, productes, data: date, preu : int):
+        self._id = id
+        self._productes = productes
+        self._data = data
+        self._preu = preu
 
-    def calcular_total(self):
-        total = 0
-        for item in self.productes:
-            total += item.calcular_subtotal()
-        return total
+    def id(self):
+        return self._id
 
-    def afegir_productes(self, productes: List[Item]):
-        self.productes.extend(productes)
+    def productes(self):
+        return self._productes
 
-    def valorar_producte(self):
-        for item in self.productes:
-            puntuacio = int(input(f"Introdueix la puntuació per {item.producte.nom} (de 1 a 5): "))
-            comentari = input("Introdueix un comentari (opcional): ")
-            item.resenya = Resenya(puntuacio, comentari)
-            item.producte.resenyes.append(item.resenya)
+    def data(self):
+        return self._data
 
-
-class PersonalShopper:
-    def __init__(self, id: int, nom: str, especialitat: str):
-        self.id = id
-        self.nom = nom
-        self.especialitat = especialitat
-
-    def recomanar_productes(self):
-        pass
-
-    def crear_llista_compra(self, preferencies: List[str]):
-        pass
+    def preu(self):
+        return self._preu
+        
+    def valorar(self):
+        for nom, prod  in self.productes.items():
+            puntuacio = int(input(f"Introdueix la puntuació per {nom} (de 1 a 5): "))
+            ressenya = input("Introdueix un comentari (opcional): ")
+            data=datetime.datetime.now()
+            valoracio = Valoracio(puntuacio, ressenya, data)
+            prod.afegir_valoracio(valoracio)
 
 
+#CLASSE VALORACIÓ
+class Valoracio:
+    def __init__(self, puntuacio, ressenya, data)
+        self._puntuacio=puntuacio
+        self._ressenya=ressenya
+        self._data=sata
+
+    def puntuacio(self):
+        return self._puntuacio
+        
+    def ressenya(self):
+        return self._ressenya
+        
+    def data(self):
+        return self._data
+        
+
+#CLASSE PERSONAL
+class Personal:
+    def __init__(self, nif: int, nom: str, cognom: str, data, contrasenya, email, clients):
+        self._nif = id
+        self._nom = nom
+        self._data=data
+        self._contrasenya=contrasenya
+        self._email=email
+        self._clients=clients
+        
+    def nif(self):
+        return self._nif 
+
+    def nom(self):
+        return self._nom 
+
+    def data(self):
+        return self._data
+
+    def contrasenya(self):
+        return self._contrasenya
+
+    def email(self):
+        return self._email
+
+    def clients(self):
+        return self._clients
+
+
+#CLASSE CLIENT
 class Client:
-    def __init__(self, id: int, nom: str, correu: str, adreca: str, contrasenya: str):
-        self.id = id
-        self.nom = nom
-        self.correu = correu
-        self.adreca = adreca
-        self.contrasenya = contrasenya
+    def __init__(self, nif: int, nom: str, cognom:str , email: str, adreca: str, contrasenya: str, telefon:int, comandes, personal, ):
+        self._nif = nif
+        self._nom = nom
+        self._cognom = cognom
+        self._adreca = adreca
+        self._contrasenya = contrasenya
+        self._email = email
+        self._comandes=comandes
+        self._personal=personal
+    
+    def nif(self):
+        return self._nif 
 
-    def realitzar_comanda(self, productes: List[Item]):
-        comanda = Comanda(1, date.today(), "Pendent")
-        comanda.afegir_productes(productes)
-        return comanda
+    def nom(self):
+        return self._nom 
 
-    def seguir_comanda(self, comanda: Comanda):
-        return f"Comanda {comanda.id}: Estat - {comanda.estat}, Total - {comanda.calcular_total()}€"
+    def adreca(self):
+        return self._adreca
+
+    def contrasenya(self):
+        return self._contrasenya
+
+    def email(self):
+        return self._email
+
+    def personal(self):
+        return self._personal
+        
 
 
 if __name__ == "__main__":
