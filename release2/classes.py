@@ -114,10 +114,10 @@ class Producte:
         return self.nom
 
     def marca(self) -> str:
-        return self.marca.marca()
+        return self.marca
 
     def model(self) -> str:
-        return self.model.model()
+        return self.model
 
     def seccio(self) -> str:
         return self.seccio
