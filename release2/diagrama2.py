@@ -138,7 +138,7 @@ class Producte:
                f"Preu: {self.preu}\n" \
                f"Disponibilitat: {self.disponibilitat}\n" \
                f"Descripció: {self.descripcio}\n" \
-               f"Recomendacions: {self.recomanats}\n"
+               f"Recomanacions: {list(self.recomanats.keys())}\n"
 
     def nom(self) -> str:
         return self._nom
@@ -181,6 +181,36 @@ class Producte:
 
     def afegir_valoracio(self, val):
         self._valoracionS.append(val)
+
+    def incluir_recom(self, dic):
+        self.recomanats = dic
+
+
+#CLASSE MARCA
+class Marca:
+    def __init__(self, nom: str, descripcio: str):
+        self.nom = nom
+        self.descripcio = descripcio
+
+    def marca(self) -> str:
+        return self.nom
+
+    def descripcio(self) -> str:
+        return self.descripcio
+
+
+#CLASSE MODEL
+class Model:
+    def __init__(self, nom: str, descripcio: str):
+        self.nom = nom
+        self.descripcio = descripcio
+
+    def model(self) -> str:
+        return self.nom
+
+    def descripcio(self) -> str:
+        return self.descripcio
+
 
 
 
