@@ -8,30 +8,89 @@ Created on Mon Dec 11 11:08:59 2023
 
 from typing import Dict
 
-class Marca:
-    def __init__(self, nom: str, descripcio: str):
+#CLASSE CATÀLEG
+class Cataleg:
+    def __init__(self, seccions: Dict[str, Seccio]):
+        self.seccions = seccions
+
+    def productes_seccio(self, s: str) -> Dict[str, int]:
+        return self.seccions[s].productes_subseccio()
+
+    def productes_marca(self, m: str) -> int:
+        count = 0
+        for seccio in self._seccions:
+            count += seccio.productes_marca(m)
+        return count
+        
+    def recomanacions(self, p: str) -> Dict[str, Producte]:
+       for seccio in self._seccions:
+            recom = seccio.recomanacions(p)
+        return recom
+
+
+#CLASSE SECCIÓ
+class Seccio:
+    def __init__(self, nom: str, descripcio: str, subseccions: Dict[str, Subseccio]):
         self.nom = nom
         self.descripcio = descripcio
+        self.subseccions = subseccions
 
-    def marca(self) -> str:
+    def nom(self) -> str:
         return self.nom
 
     def descripcio(self) -> str:
         return self.descripcio
 
+    def productes_seccio(self) -> Dict[str, int]:
+        prod = {}
+        for seccio in self._subseccions:
+            prod[seccio.nom()] = seccio.productes_subseccio()
+        return prod
 
-class Model:
-    def __init__(self, nom: str, descripcio: str):
+    def productes_marca(self, m: str) -> int:
+        count = 0
+        for seccio in self._subseccions:
+            count += seccio.productes_marca(m)
+        return count
+        
+    def recomanacions(self, p: str) -> Dict[str, Producte]:
+        for seccio in self._seccions:
+            recom = seccio.recomanacions(p)
+        return recom
+
+
+#CLASSE SUBSECCIÓ
+class Subseccio:
+    def __init__(self, nom: str, descripcio: str, productes: Dict[str, Producte]):
         self.nom = nom
         self.descripcio = descripcio
+        self.productes = productes
 
-    def model(self) -> str:
+    def nom(self) -> str:
         return self.nom
 
     def descripcio(self) -> str:
         return self.descripcio
 
+    def productes_subseccio(self) -> Dict[str, int]:
+        return len(self._productes.keys())
 
+    def productes_marca(self, m: str) -> int:
+        count = 0
+        for prod in self._productes:
+            marca = prod.marca()
+            if marca.nom() == m
+                count += 1
+        return count
+        
+    def recomanacions(self, p: str) -> Dict[str, Producte]:
+        for prod in self._productes:
+            if prod.nom() == p:
+                recom = prod.recomanats()
+        return recom
+        
+        
+#CLASSE PRODUCTE
 class Producte:
     def __init__(self, nom: str, marca: Marca, model: Model, seccio: str, subseccio: str,
                  preu: int, disponibilitat: str, descripcio: str, recomanats: Dict[str, "Producte"]):
@@ -44,6 +103,7 @@ class Producte:
         self.disponibilitat = disponibilitat
         self.descripcio = descripcio
         self.recomanats = recomanats
+                     
     def __str__(self):
         return f"Producte: {self.nom}\n" \
                f"Marca: {self.marca.marca()}\n" \
@@ -83,71 +143,33 @@ class Producte:
         return self.recomanats
 
 
-class Subseccio:
-    def __init__(self, nom: str, descripcio: str, productes: Dict[str, Producte]):
+#CLASSE MARCA
+class Marca:
+    def __init__(self, nom: str, descripcio: str):
         self.nom = nom
         self.descripcio = descripcio
-        self.productes = productes
 
-    def nom(self) -> str:
+    def marca(self) -> str:
         return self.nom
 
     def descripcio(self) -> str:
         return self.descripcio
 
-    def productes_subseccio(self) -> Dict[str, int]:
-        return {prod.nom: prod.preu for prod in self.productes.values()}
 
-    def productes_marca(self, m: str) -> int:
-        return sum(1 for prod in self.productes.values() if prod.marca.marca() == m)
-
-    def recomanacions(self, p: str) -> Dict[str, Producte]:
-        return {prod.nom: prod for prod in self.productes.values() if p in prod.descripcio}
-
-
-class Seccio:
-    def __init__(self, nom: str, descripcio: str, subseccions: Dict[str, Subseccio]):
+#CLASSE MODEL
+class Model:
+    def __init__(self, nom: str, descripcio: str):
         self.nom = nom
         self.descripcio = descripcio
-        self.subseccions = subseccions
 
-    def nom(self) -> str:
+    def model(self) -> str:
         return self.nom
 
     def descripcio(self) -> str:
         return self.descripcio
 
-    def productes_subseccio(self) -> Dict[str, int]:
-        result = {}
-        for subseccio in self.subseccions.values():
-            result.update(subseccio.productes_subseccio())
-        return result
-
-    def productes_marca(self, m: str) -> int:
-        return sum(subseccio.productes_marca(m) for subseccio in self.subseccions.values())
-
-    def recomanacions(self, p: str) -> Dict[str, Producte]:
-        result = {}
-        for subseccio in self.subseccions.values():
-            result.update(subseccio.recomanacions(p))
-        return result
 
 
-class Cataleg:
-    def __init__(self, seccions: Dict[str, Seccio]):
-        self.seccions = seccions
-
-    def productes_seccio(self, s: str) -> Dict[str, int]:
-        return self.seccions[s].productes_subseccio()
-
-    def productes_marca(self, m: str) -> int:
-        return sum(seccio.productes_marca(m) for seccio in self.seccions.values())
-
-    def recomanacions(self, p: str) -> Dict[str, Producte]:
-        result = {}
-        for seccio in self.seccions.values():
-            result.update(seccio.recomanacions(p))
-        return result
 
 def mostrar_informacio(catalog):
     for seccio_nom, seccio in catalog.seccions.items():
@@ -167,13 +189,11 @@ nike = Marca("Nike", "Nike és una reconeguda marca global de roba, calçat i ac
 adidas = Marca("Adidas", "Adidas és una reconeguda marca de roba, calçat i accessoris esportius d'origen alemany. Fundada el 1949 per Adolf Dassler, la marca s'ha destacat per la seva innovació en el disseny i tecnologia de productes esportius. Adidas és coneguda pel seu distintiu logotip de les tres ratlles i ha aconseguit una gran influència en la cultura urbana i la moda casual, fusionant funcionalitat i estil en els seus productes. La marca patrocina nombrosos atletes i equips esportius a nivell mundial.")
 reebok = Marca("Reebok", "Reebok és una marca global de roba i calçat esportiu amb un enfocament en la forma física i l'estil de vida actiu. Fundada el 1958, Reebok ha estat coneguda per les seves innovacions en calçat esportiu i col·laboracions amb atletes i celebritats.")
 
-
 airforce1 = Model("Air Force 1", "Les sabatilles Nike Air Force 1 són un icònic model de calçat esportiu introduït per Nike el 1982. Conegudes pel seu disseny versàtil i atemporal, presenten una part superior de pell i una sola gruixuda amb tecnologia d'amortiment Air, proporcionant comoditat i suport. Les Air Force 1 han perdurat com a clàssic de la moda urbana i són apreciades tant pel seu estil elegant com pel seu rendiment durador.")
 yeezy = Model("Yeezy", "Les sabatilles Yeezy són una línia de calçat esportiu dissenyada en col·laboració entre el raper i dissenyador de moda Kanye West i la marca Adidas. Conegudes pel seu estil modern i avantguardista, les Yeezy han guanyat popularitat pel seu disseny distintiu, materials d'alta qualitat i la seva associació amb la cultura de la moda urbana. Cada llançament de Yeezy sovint genera una gran expectació entre els aficionats a la moda i els entusiastes del calçat, convertint-les en una de les línies de sabatilles més buscades i col·leccionables.")
 classic_leather = Model("Classic Leather", "Les sabatilles Reebok Classic Leather són un model atemporal que ha perdurat en la moda des del seu llançament el 1983. Amb un disseny simple i elegant, aquestes sabatilles són conegudes per la seva comoditat i versatilitat.")
 ultraboost = Model("Ultra Boost", "Les sabatilles Adidas Ultra Boost són conegudes per la seva tecnologia d'amortiment Boost, que proporciona una sensació de comoditat i retorn d'energia. Aquest model combina rendiment i estil, sent popular tant per a activitats esportives com per a l'ús casual.")
 nano_x = Model("Nano X", "Reebok Nano X és un model dissenyat específicament per a entrenament creuat. Ofereix estabilitat i durabilitat, sent una elecció popular entre els entusiastes del fitness.")
-
 
 airforce1white = Producte("Air Force 1 Blanques", nike, airforce1, "Casual", "Casual Esportiu", 100, "Disponible", "Les sabatilles Air Force 1 blanques són un icònic model de calçat esportiu dissenyat per Nike. Introduïdes el 1982, aquestes sabatilles han perdurat en la moda urbana degut al seu estil atemporal i versatilitat. Caracteritzades pel seu distintiu disseny de tall baix, sola gruixuda i part superior de pell blanca, les Air Force 1 blanques són conegudes per la seva comoditat i capacitat per complementar una varietat d'estils casuals. El seu estatus com a clàssic de la moda urbana les ha convertit en un element bàsic a la cultura sneaker.", 
                           {})
