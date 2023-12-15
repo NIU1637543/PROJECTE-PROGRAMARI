@@ -1,29 +1,64 @@
 from typing import List
 from datetime import date
 
-#CLASSE PRODUCTE
-class Producte:
-    def __init__(self, nom: str, preu: float, descripcio: str):
-        self.nom = nom
-        self.preu = preu
-        self.descripcio = descripcio
-        self._valoracions = []
+#CLASSE CLIENT
+class Client:
+    def __init__(self, nif: int, nom: str, cognom:str , email: str, adreca: str, contrasenya: str, telefon:int, comandes, personal, ):
+        self._nif = nif
+        self._nom = nom
+        self._cognom = cognom
+        self._adreca = adreca
+        self._contrasenya = contrasenya
+        self._email = email
+        self._comandes=comandes
+        self._personal=personal
+    
+    def nif(self):
+        return self._nif 
 
-    def mitjana_nota(self):
-        sum=0
-        for val in self._valoracions:
-            sum+=val.nota
-        return sum/len(self._valoracions)
+    def nom(self):
+        return self._nom 
 
-    def ressenyes(self):
-        ressenyes=[]
-        for val in self._valoracions:
-            ressenyes.append(val.ressenya)
-        return ressenyes
+    def adreca(self):
+        return self._adreca
 
-    def afegir_valoracio(self, val):
-        self._valoracion.append(val)
+    def contrasenya(self):
+        return self._contrasenya
 
+    def email(self):
+        return self._email
+
+    def personal(self):
+        return self._personal
+
+
+#CLASSE PERSONAL
+class Personal:
+    def __init__(self, nif: int, nom: str, cognom: str, data, contrasenya, email, clients):
+        self._nif = id
+        self._nom = nom
+        self._data=data
+        self._contrasenya=contrasenya
+        self._email=email
+        self._clients=clients
+        
+    def nif(self):
+        return self._nif 
+
+    def nom(self):
+        return self._nom 
+
+    def data(self):
+        return self._data
+
+    def contrasenya(self):
+        return self._contrasenya
+
+    def email(self):
+        return self._email
+
+    def clients(self):
+        return self._clients
 
 
 #CLASSE COMANDA
@@ -60,7 +95,7 @@ class Valoracio:
     def __init__(self, puntuacio, ressenya, data)
         self._puntuacio=puntuacio
         self._ressenya=ressenya
-        self._data=sata
+        self._data=data
 
     def puntuacio(self):
         return self._puntuacio
@@ -72,65 +107,77 @@ class Valoracio:
         return self._data
         
 
-#CLASSE PERSONAL
-class Personal:
-    def __init__(self, nif: int, nom: str, cognom: str, data, contrasenya, email, clients):
-        self._nif = id
-        self._nom = nom
-        self._data=data
-        self._contrasenya=contrasenya
-        self._email=email
-        self._clients=clients
-        
-    def nif(self):
-        return self._nif 
+#CLASSE PRODUCTE
 
-    def nom(self):
-        return self._nom 
+class Producte:
+    def __init__(self, nom: str, marca: Marca, model: Model, seccio: str, subseccio: str,
+                 preu: int, disponibilitat: str, descripcio: str, recomanats: Dict[str, "Producte"]):
+        self.nom = nom
+        self.marca = marca
+        self.model = model
+        self.seccio = seccio
+        self.subseccio = subseccio
+        self.preu = preu
+        self.disponibilitat = disponibilitat
+        self.descripcio = descripcio
+        self.recomanats = recomanats
+        self._valoracions = []
 
-    def data(self):
-        return self._data
+    def __str__(self):
+        return f"Producte: {self.nom}\n" \
+               f"Marca: {self.marca.marca()}\n" \
+               f"Model: {self.model.model()}\n" \
+               f"Secció: {self.seccio}\n" \
+               f"Subsecció: {self.subseccio}\n" \
+               f"Preu: {self.preu}\n" \
+               f"Disponibilitat: {self.disponibilitat}\n" \
+               f"Descripció: {self.descripcio}\n" \
+               f"Recomendacions: {self.recomanats}\n"
 
-    def contrasenya(self):
-        return self._contrasenya
+    def nom(self) -> str:
+        return self.nom
 
-    def email(self):
-        return self._email
+    def marca(self) -> str:
+        return self.marca.marca()
 
-    def clients(self):
-        return self._clients
+    def model(self) -> str:
+        return self.model.model()
+
+    def seccio(self) -> str:
+        return self.seccio
+
+    def subseccio(self) -> str:
+        return self.subseccio
+
+    def preu(self) -> int:
+        return self.preu
+
+    def disponibilitat(self) -> str:
+        return self.disponibilitat
+
+    def descripcio(self) -> str:
+        return self.descripcio
+
+    def recomanacions(self) -> Dict[str, 'Producte']:
+        return self.recomanats
+                     
+    def mitjana_nota(self):
+        sum=0
+        for val in self._valoracions:
+            sum+=val.nota
+        return sum/len(self._valoracions)
+
+    def ressenyes(self):
+        ressenyes=[]
+        for val in self._valoracions:
+            ressenyes.append(val.ressenya)
+        return ressenyes
+
+    def afegir_valoracio(self, val):
+        self._valoracionS.append(val)
 
 
-#CLASSE CLIENT
-class Client:
-    def __init__(self, nif: int, nom: str, cognom:str , email: str, adreca: str, contrasenya: str, telefon:int, comandes, personal, ):
-        self._nif = nif
-        self._nom = nom
-        self._cognom = cognom
-        self._adreca = adreca
-        self._contrasenya = contrasenya
-        self._email = email
-        self._comandes=comandes
-        self._personal=personal
-    
-    def nif(self):
-        return self._nif 
 
-    def nom(self):
-        return self._nom 
-
-    def adreca(self):
-        return self._adreca
-
-    def contrasenya(self):
-        return self._contrasenya
-
-    def email(self):
-        return self._email
-
-    def personal(self):
-        return self._personal
-        
 
 
 if __name__ == "__main__":
